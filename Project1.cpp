@@ -5,6 +5,39 @@
 
 using namespace std;
 
+//  class with static validation methods
+// (The Validation class is the same as in previous versions)
+class Validation {
+public:
+    static bool isAlphabetic(const string& str) {
+        for (char c : str) {
+            if (!isalpha(c) && c != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static bool isNameValid(const string& name) {
+        // The name must be alphabetic chars and min size 5 and max size 20
+        return isAlphabetic(name) && name.length() >= 5 && name.length() <= 20;
+    }
+
+    static bool isPasswordValid(const string& password) {
+        // Password must be with min size 8 and max size 20
+        return password.length() >= 8 && password.length() <= 20;
+    }
+
+    static bool isBalanceValid(double balance) {
+
+        return balance >= 1500;
+    }
+
+    static bool isSalaryValid(double salary) {
+
+        return salary >= 5000;
+    }
+};
 
 
 class Client {
@@ -107,44 +140,7 @@ public:
     void Display() { 
         cout << "ID: " << id << endl;
         cout << "Name: " << name << endl;
-        cout << "Password: " << password << endl;
         cout << "Balance: " << balance << endl;
-    }
-};
-
-
-
-//  class with static validation methods
-// (The Validation class is the same as in previous versions)
-class Validation {
-public:
-    static bool isAlphabetic(const string& str) {
-        for (char c : str) {
-            if (!isalpha(c) && c != ' ') {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    static bool isNameValid(const string& name) {
-        // The name must be alphabetic chars and min size 5 and max size 20
-        return isAlphabetic(name) && name.length() >= 5 && name.length() <= 20;
-    }
-
-    static bool isPasswordValid(const string& password) {
-        // Password must be with min size 8 and max size 20
-        return password.length() >= 8 && password.length() <= 20;
-    }
-
-    static bool isBalanceValid(double balance) {
-        
-        return balance >= 1500;
-    }
-
-    static bool isSalaryValid(double salary) {
-       
-        return salary >= 5000;
     }
 };
 
@@ -216,13 +212,7 @@ public:
     {
         cout << "Name: " << this->name << endl;
         cout << "ID: " << this->id << endl;
-        cout << "Password: " << this->password << endl;
         cout << "Salary: " << this->salary << endl;
     }  
 };
 
-int main()
-{
-    Employee e("sama", 1234, "samasamasama", 500000.0);
-    e.Display();
-}
