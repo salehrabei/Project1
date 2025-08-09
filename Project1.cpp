@@ -50,34 +50,34 @@ private:
 public:
     Client() {
         id = 0;
-        balance= 0;
+        balance = 0;
     }
     Client(int id, string name, string password, double balance) {
 
-        id = id; 
+        id = id;
         name = name;
         password = password;
-       balance= balance;
+        balance = balance;
     }
-  
-    int getId(){ 
+
+    int getId() {
         return id;
     }
-    string getName()  {
+    string getName() {
         return name;
     }
-    string getPassword()  {
+    string getPassword() {
         return password;
     }
-    double getBalance()  { 
-        return balance; 
+    double getBalance() {
+        return balance;
     }
 
 
     void setId(int newId) {
         id = newId;
     }
-    void setName( string& newName) { 
+    void setName(string& newName) {
         if (Validation::isNameValid(newName)) {
             name = newName;
         }
@@ -86,7 +86,7 @@ public:
         }
     }
 
-    void setPassword( string& newPassword) { 
+    void setPassword(string& newPassword) {
         if (Validation::isPasswordValid(newPassword)) {
             password = newPassword;
         }
@@ -95,7 +95,7 @@ public:
         }
     }
 
-    void setBalance(double newBalance) { 
+    void setBalance(double newBalance) {
         if (Validation::isBalanceValid(newBalance)) {
             balance = newBalance;
         }
@@ -105,7 +105,7 @@ public:
         }
     }
 
-    void deposit(double amount) { 
+    void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
         }
@@ -114,7 +114,7 @@ public:
         }
     }
 
-    void withdraw(double amount) { 
+    void withdraw(double amount) {
         if (amount > 0 && balance >= amount) {
             balance -= amount;
         }
@@ -133,11 +133,11 @@ public:
         }
     }
 
-    void checkBalance() { 
-        cout << "Your current balance is: "  << balance << endl;
+    void checkBalance() {
+        cout << "Your current balance is: " << balance << endl;
     }
 
-    void Display() { 
+    void Display() {
         cout << "ID: " << id << endl;
         cout << "Name: " << name << endl;
         cout << "Balance: " << balance << endl;
@@ -154,8 +154,8 @@ private:
 public:
     Employee()
     {
-       this-> id = 0;
-       this->salary = 0;
+        this->id = 0;
+        this->salary = 0;
     }
     Employee(string name, int id, string password, double salary)
     {
@@ -213,6 +213,6 @@ public:
         cout << "Name: " << this->name << endl;
         cout << "ID: " << this->id << endl;
         cout << "Salary: " << this->salary << endl;
-    }  
+    }
 };
 
