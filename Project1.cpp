@@ -138,9 +138,10 @@ public:
     }
 
     void Display() {
-        cout << "ID: " << id << endl;
-        cout << "Name: " << name << endl;
-        cout << "Balance: " << balance << endl;
+        cout << "ID: " << this->id << endl;
+        cout << "Name: " <<this-> name << endl;
+        cout << "Password: " << this->password << endl;
+        cout << "Balance: " <<this-> balance << endl;
     }
 };
 
@@ -212,6 +213,7 @@ public:
     {
         cout << "Name: " << this->name << endl;
         cout << "ID: " << this->id << endl;
+        cout << "Password: " << this->password << endl;
         cout << "Salary: " << this->salary << endl;
     }
 };
@@ -288,6 +290,7 @@ public:
     {
         cout << "Name: " << this->name << endl;
         cout << "ID: " << this->id << endl;
+        cout << "Password: " << this->password << endl;
         cout << "Salary: " << this->salary << endl;
     }
 };
