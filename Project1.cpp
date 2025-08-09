@@ -41,7 +41,7 @@ public:
     }
 
 
-    void setId(int newId) { 
+    void setId(int newId) {
         id = newId;
     }
     void setName( string& newName) { 
@@ -147,3 +147,82 @@ public:
         return salary >= 5000;
     }
 };
+
+class Employee
+{
+private:
+    string name;
+    int id;
+    string password;
+    double salary;
+public:
+    Employee()
+    {
+       this-> id = 0;
+       this->salary = 0;
+    }
+    Employee(string name, int id, string password, double salary)
+    {
+        this->name = name;
+        this->id = id;
+        this->password = password;
+        this->salary = salary;
+    }
+    void setName(string& newName) {
+        if (Validation::isNameValid(newName)) {
+            name = newName;
+        }
+        else {
+            cout << "Error: Invalid name. Must be 5-20 alphabetic characters." << endl;
+        }
+    }
+    void setPassword(string& newPassword) {
+        if (Validation::isPasswordValid(newPassword)) {
+            password = newPassword;
+        }
+        else {
+            cout << "Error: Invalid password. Must be 8-20 characters long." << endl;
+        }
+    }
+    void setId(int newId) {
+        id = newId;
+    }
+    void setSalary(double newSalary) {
+        if (Validation::isSalaryValid(newSalary)) {
+            salary = newSalary;
+        }
+        else {
+            cout << " Minimum salary is 5000" << endl;
+            salary = 5000;
+        }
+    }
+    string getName()
+    {
+        return this->name;
+    }
+    string getPassword()
+    {
+        return this->password;
+    }
+    int getId()
+    {
+        return this->id;
+    }
+    double getSalary()
+    {
+        return this->salary;
+    }
+    void Display()
+    {
+        cout << "Name: " << this->name << endl;
+        cout << "ID: " << this->id << endl;
+        cout << "Password: " << this->password << endl;
+        cout << "Salary: " << this->salary << endl;
+    }  
+};
+
+int main()
+{
+    Employee e("sama", 1234, "samasamasama", 500000.0);
+    e.Display();
+}
