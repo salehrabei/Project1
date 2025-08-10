@@ -6,7 +6,6 @@
 using namespace std;
 
 //  class with static validation methods
-// (The Validation class is the same as in previous versions)
 class Validation {
 public:
     static bool isAlphabetic(const string& str) {
