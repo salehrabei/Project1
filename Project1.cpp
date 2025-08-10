@@ -49,35 +49,35 @@ private:
 
 public:
     Client() {
-        id = 0;
-        balance = 0;
+        this->id = 0;
+        this->balance = 0;
     }
     Client(int id, string name, string password, double balance) {
 
-        id = id;
-        name = name;
-        password = password;
-        balance = balance;
+        this->id = id;
+        this->name = name;
+        this->password = password;
+        this->balance = balance;
     }
 
     int getId() {
         return id;
     }
     string getName() {
-        return name;
+        return   this->name;
     }
     string getPassword() {
-        return password;
+        return this->password;
     }
     double getBalance() {
-        return balance;
+        return this->balance;
     }
 
 
     void setId(int newId) {
         id = newId;
     }
-    void setName(string& newName) {
+    void setName(const string& newName) {
         if (Validation::isNameValid(newName)) {
             name = newName;
         }
@@ -86,7 +86,7 @@ public:
         }
     }
 
-    void setPassword(string& newPassword) {
+    void setPassword(const  string& newPassword) {
         if (Validation::isPasswordValid(newPassword)) {
             password = newPassword;
         }
@@ -139,17 +139,17 @@ public:
 
     void Display() {
         cout << "ID: " << this->id << endl;
-        cout << "Name: " <<this-> name << endl;
+        cout << "Name: " << this->name << endl;
         cout << "Password: " << this->password << endl;
-        cout << "Balance: " <<this-> balance << endl;
+        cout << "Balance: " << this->balance << endl;
     }
 };
 
 class Employee
 {
 private:
-    string name;
     int id;
+    string name;
     string password;
     double salary;
 public:
@@ -158,27 +158,27 @@ public:
         this->id = 0;
         this->salary = 0;
     }
-    Employee(string name, int id, string password, double salary)
+    Employee(int id, string name, string password, double salary)
     {
-        this->name = name;
         this->id = id;
+        this->name = name;
         this->password = password;
         this->salary = salary;
     }
-    void setName(string& newName) {
+    void setName(const string& newName) {
         if (Validation::isNameValid(newName)) {
             name = newName;
         }
         else {
-            cout << "Error: Invalid name. Must be 5-20 alphabetic characters." << endl;
+            cout << " Invalid name, Must be 5-20 alphabetic characters." << endl;
         }
     }
-    void setPassword(string& newPassword) {
+    void setPassword(const string& newPassword) {
         if (Validation::isPasswordValid(newPassword)) {
             password = newPassword;
         }
         else {
-            cout << "Error: Invalid password. Must be 8-20 characters long." << endl;
+            cout << " Invalid password, Must be 8-20 characters long." << endl;
         }
     }
     void setId(int newId) {
@@ -221,9 +221,9 @@ public:
 class Admin
 {
 private:
+    int id;
     string name;
     string password;
-    int id;
     double salary;
 public:
     Admin()
@@ -231,11 +231,11 @@ public:
         this->id = 0;
         this->salary = 0;
     }
-    Admin(string name, string password, int id, double salary)
+    Admin(int id, string name, string password, double salary)
     {
+        this->id = id;
         this->name = name;
         this->password = password;
-        this->id = id;
         this->salary = salary;
     }
     void setName(string& newName) {
@@ -243,7 +243,7 @@ public:
             name = newName;
         }
         else {
-            cout << "Error: Invalid name. Must be 5-20 alphabetic characters." << endl;
+            cout << " Invalid name, Must be 5-20 alphabetic characters." << endl;
         }
     }
 
@@ -252,7 +252,7 @@ public:
             password = newPassword;
         }
         else {
-            cout << "Error: Invalid password. Must be 8-20 characters long." << endl;
+            cout << " Invalid password, Must be 8-20 characters long." << endl;
         }
     }
 
@@ -294,4 +294,52 @@ public:
         cout << "Salary: " << this->salary << endl;
     }
 };
+int main() 
+{
+    //Client
+
+   Client client1(101, "Saleh Rabei ", "@Passsword_123!", 4000);
+    cout << "Client 1 Info:" << endl;
+    client1.Display();
+
+    Client client2(102, "Sama Maged", "@cueps123@", 8000);
+    cout << "\nClient 2 Info:" << endl;
+    client1.Display();
+
+    cout << "=======================================================================\n" << endl;
+
+    cout << "Client 1 deposits 500" << endl;
+    client1.deposit(500.0);
+    client1.checkBalance();
+    cout << "\n" << endl;
+
+    cout << "Client 1 withdraws 200" << endl;
+    client1.withdraw(200.0);
+    client1.checkBalance();
+    cout << "\n" << endl;
+
+    cout << "Client 1 transfers to Client 2" << endl;
+    client1.transferTo(1000.0, client2);
+    cout << "Client 1 Balance: " << client1.getBalance() << endl;
+    cout << "Client 2 Balance: " << client2.getBalance() << endl;
+    cout << "========================================================================" << endl;
+
+
+    // Employee
+    Employee emp1(201, "Mostafa", "moS1548", 6000);
+    emp1.Display();
+    cout << "=========================================================================" << endl;
+
+    //  Admin change salary 
+    Admin  admin1(301, "Abeer", "alP785", 12000.0);
+    admin1.Display();
+    cout << "\n\n" << endl;
+
+    cout << "New Salary  " << endl;
+    admin1.setSalary(15000.0);
+    admin1.Display();
+    
+
+   
+}
 
